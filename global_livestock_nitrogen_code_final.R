@@ -27,7 +27,7 @@ library("reshape2")
 #  IMPORT DATA  #
 #################
 
-setwd("C:/Users/uwizeye/OD/6.0 NUE/16.Modelling_new")
+setwd("C:/Users/author/16.Modelling_new")
 
 ##################
 # I. Feed Module #
@@ -1343,7 +1343,7 @@ write.table(aaa, "5.Outputs/4.total/losses_by_system.csv", sep=",", row.names = 
 
 new_data = data.frame(matrix(0,10,2))
 new_data[,1] = unique(aaa[,1])
-new_data[,2] = c("ESEA", "SA", "SA", "SSA", "LAC", "OC", "SA", "NA", "We", "SSA")
+new_data[,2] = c("SA", "ESEA", "SA", "SSA", "LAC", "OC", "SA", "NA", "WE", "SSA")
 names(new_data) = c("country", "Region")
 
 aaa$Region <- new_data$Region[match(aaa$country, new_data$country)]
@@ -1470,7 +1470,7 @@ write.table(data.frame(feed_chi_back[,1:2],lcnnb_data), "5.Outputs/5.indicators/
 
 
 lcnnb_data[lcnnb_data <= 0] = NA
-lcnnb_data[lcnnb_data >= 300] = NA
+lcnnb_data[lcnnb_data >= 150] = NA
 sapply(lcnnb_data,median, na.rm=TRUE)
 
 med_lcnnb = sapply(lcnnb_data, quantile, na.rm=TRUE)
@@ -1692,6 +1692,7 @@ write.table(emission_factor_animaln2o, "emission_factor_animaln2o.csv", sep=",",
 global_feed = colSums((feed_chi_back_allo[,-c(1:5)] +
 				feed_chi_broi_allo[,-c(1:5)] + 
 				feed_chi_layr_allo[,-c(1:5)] + 
+		       		feed_pig_back_allo[,-c(1:5)] + 
 				feed_pig_inte_allo[,-c(1:5)] + 
 				feed_pig_indu_allo[,-c(1:5)] + 
 				feed_cat_flot_allo[,-c(1:5)] + 
