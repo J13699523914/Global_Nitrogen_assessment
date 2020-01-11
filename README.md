@@ -1,2 +1,2 @@
-# Global_Nitrogen_assessment
-R code used to estimate nitrogen use indicators for "Nitrogen emissions in global livestock supply chains" paper
+# Global Nitrogen assessment
+This folder contains data extracted from GLEAM2.0 and R code used to estimate nitrogen use indicators for "Nitrogen emissions in global livestock supply chains" study. To use them, the paths in the code need to be customised to the user computer. Several packages were used but they are available in R environment. Don't hesitate to contact aimable.uwizeye@fao.org for any issue.
