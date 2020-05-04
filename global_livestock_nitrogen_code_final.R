@@ -21,13 +21,12 @@ library("reshape2")
 
 
 # Notes
-#Combine color palettes, https://www.r-bloggers.com/how-to-expand-color-palette-with-ggplot-and-rcolorbrewer/
 
 #################
 #  IMPORT DATA  #
 #################
 
-setwd("C:/Users/uwizeye/OneDrive - Food and Agriculture Organization/6.0 NUE/16.Modelling_new")
+setwd("C:/~/16.Modelling")
 
 ##################
 # I. Feed Module #
@@ -996,51 +995,6 @@ final_country_sml_dair_mixed <- my_final_country(feed_trim = trim_feed_sml_dair_
 
 
 
-########
-write.table (final_country_chi_back      , "5.Outputs/2.country/country_chi_back.csv", sep = ",", row.names = FALSE)
-write.table (final_country_chi_broi      , "5.Outputs/2.country/country_chi_broi.csv", sep = ",", row.names = FALSE)
-write.table (final_country_chi_layr      , "5.Outputs/2.country/country_chi_layr.csv", sep = ",", row.names = FALSE)
-
-write.table (final_country_pig_back      , "5.Outputs/2.country/country_pig_back.csv", sep = ",", row.names = FALSE)
-write.table (final_country_pig_inte      , "5.Outputs/2.country/country_pig_inte.csv", sep = ",", row.names = FALSE)
-write.table (final_country_pig_indu      , "5.Outputs/2.country/country_pig_indu.csv", sep = ",", row.names = FALSE)
-
-write.table (final_country_buf_beef_grass, "5.Outputs/2.country/country_buf_beef_grass.csv", sep = ",", row.names = FALSE)
-write.table (final_country_buf_beef_mixed, "5.Outputs/2.country/country_buf_beef_mixed.csv", sep = ",", row.names = FALSE)
-write.table (final_country_buf_dair_grass, "5.Outputs/2.country/country_buf_dair_grass.csv", sep = ",", row.names = FALSE)
-write.table (final_country_buf_dair_mixed, "5.Outputs/2.country/country_buf_dair_mixed.csv", sep = ",", row.names = FALSE)
-
-write.table (final_country_cat_flot, "5.Outputs/2.country/country_cat_flot.csv", sep = ",", row.names = FALSE)
-
-write.table (final_country_cat_beef_grass, "5.Outputs/2.country/country_cat_beef_grass.csv", sep = ",", row.names = FALSE)
-write.table (final_country_cat_beef_mixed, "5.Outputs/2.country/country_cat_beef_mixed.csv", sep = ",", row.names = FALSE)
-write.table (final_country_cat_dair_grass, "5.Outputs/2.country/country_cat_dair_grass.csv", sep = ",", row.names = FALSE)
-write.table (final_country_cat_dair_mixed, "5.Outputs/2.country/country_cat_dair_mixed.csv", sep = ",", row.names = FALSE)
-
-write.table (final_country_sml_beef_grass, "5.Outputs/2.country/country_sml_beef_grass.csv", sep = ",", row.names = FALSE)
-write.table (final_country_sml_beef_mixed, "5.Outputs/2.country/country_sml_beef_mixed.csv", sep = ",", row.names = FALSE)
-write.table (final_country_sml_dair_grass, "5.Outputs/2.country/country_sml_dair_grass.csv", sep = ",", row.names = FALSE)
-write.table (final_country_sml_dair_mixed, "5.Outputs/2.country/country_sml_dair_mixed.csv", sep = ",", row.names = FALSE)
-
-###############
-# Allocation factor animal - return output 8
-
-#allocation_animal = data.frame(final_country_chi_back[6], final_country_chi_broi[,6], final_country_chi_layr[,6], final_country_pig_back[,6], final_country_pig_inte[,6], final_country_pig_indu[,6],
-#                               final_country_buf_beef_grass[,6], final_country_buf_beef_mixed[,6], final_country_buf_dair_grass[,6], final_country_buf_dair_mixed[,6], final_country_cat_flot[,6], final_country_cat_beef_grass[,6],
-#                               final_country_cat_beef_mixed[,6], final_country_cat_dair_grass[,6], final_country_cat_dair_mixed[,6], final_country_goa_beef_grass[,6], final_country_goa_beef_mixed[,6], final_country_goa_dair_grass[,6],
-#                               final_country_goa_dair_mixed[,6], final_country_she_beef_grass[,6], final_country_she_beef_mixed[,6], final_country_she_dair_grass[,6], final_country_she_dair_mixed[,6])
-#
-#nom_system <- c("chi_back", "chi_broi", "chi_layr", "pig_back", "pig_inte", "pig_indu", "buf_beef_grass", "buf_beef_mixed", "buf_dair_grass",
-#                "buf_dair_mixed", "cat_flot", "cat_beef_grass", "cat_beef_mixed", "cat_dair_grass", "cat_dair_mixed", "goa_beef_grass",
-#                "goa_beef_mixed", "goa_dair_grass", "goa_dair_mixed", "she_beef_grass", "she_beef_mixed", "she_dair_grass", "she_dair_mixed")
-
-# Allocation 
-
-#names(allocation_animal) = nom_system
-
-#allocation_animal = data.frame(feed_chi_broi[,1:5], allocation_animal)
-#write.table(allocation_animal, "5.Outputs/4.total/allocation_animal.csv", sep=",", row.names = FALSE)
-
 # Comparing emissions from feed and manure 
 
 fe_vs_man_country_chi_back       <- final_country_chi_back      [,18]/ final_country_chi_back      [,44] * 100 
@@ -1064,46 +1018,46 @@ fe_vs_man_country_sml_dair_grass <- final_country_sml_dair_grass[,18]/ final_cou
 fe_vs_man_country_sml_dair_mixed <- final_country_sml_dair_mixed[,18]/ final_country_sml_dair_mixed[,44] * 100 
 
 fe_vs_man = data.frame(final_country_chi_back[,1:2],fe_vs_man_country_chi_back ,     
-													fe_vs_man_country_chi_broi      ,
-													fe_vs_man_country_chi_layr      ,
-													fe_vs_man_country_pig_back      ,
-													fe_vs_man_country_pig_inte      ,
-													fe_vs_man_country_pig_indu      ,
-													fe_vs_man_country_buf_beef_grass,
-													fe_vs_man_country_buf_beef_mixed,
-													fe_vs_man_country_buf_dair_grass,
-													fe_vs_man_country_buf_dair_mixed,
-													fe_vs_man_country_cat_flot      ,
-													fe_vs_man_country_cat_beef_grass,
-													fe_vs_man_country_cat_beef_mixed,
-													fe_vs_man_country_cat_dair_grass,
-													fe_vs_man_country_cat_dair_mixed,
-													fe_vs_man_country_sml_beef_grass,
-													fe_vs_man_country_sml_beef_mixed,
-													fe_vs_man_country_sml_dair_grass,
-													fe_vs_man_country_sml_dair_mixed)
+		fe_vs_man_country_chi_broi      ,
+		fe_vs_man_country_chi_layr      ,
+		fe_vs_man_country_pig_back      ,
+		fe_vs_man_country_pig_inte      ,
+		fe_vs_man_country_pig_indu      ,
+		fe_vs_man_country_buf_beef_grass,
+		fe_vs_man_country_buf_beef_mixed,
+		fe_vs_man_country_buf_dair_grass,
+		fe_vs_man_country_buf_dair_mixed,
+		fe_vs_man_country_cat_flot      ,
+		fe_vs_man_country_cat_beef_grass,
+		fe_vs_man_country_cat_beef_mixed,
+		fe_vs_man_country_cat_dair_grass,
+		fe_vs_man_country_cat_dair_mixed,
+		fe_vs_man_country_sml_beef_grass,
+		fe_vs_man_country_sml_beef_mixed,
+		fe_vs_man_country_sml_dair_grass,
+		fe_vs_man_country_sml_dair_mixed)
 
 write.table (fe_vs_man, "5.Outputs/2.country/country_fe_vs_man.csv", sep = ",", row.names = FALSE)
 
 nue_stage = data.frame(final_country_chi_back[,1:2],final_country_chi_back      [,9:11], 
-													final_country_chi_broi      [,9:11],
-													final_country_chi_layr      [,9:11],
-													final_country_pig_back      [,9:11],
-													final_country_pig_inte      [,9:11],
-													final_country_pig_indu      [,9:11],
-													final_country_buf_beef_grass[,9:11],
-													final_country_buf_beef_mixed[,9:11],
-													final_country_buf_dair_grass[,9:11],
-													final_country_buf_dair_mixed[,9:11],
-													final_country_cat_flot      [,9:11],
-													final_country_cat_beef_grass[,9:11],
-													final_country_cat_beef_mixed[,9:11],
-													final_country_cat_dair_grass[,9:11],
-													final_country_cat_dair_mixed[,9:11],
-													final_country_sml_beef_grass[,9:11],
-													final_country_sml_beef_mixed[,9:11],
-													final_country_sml_dair_grass[,9:11],
-													final_country_sml_dair_mixed[,9:11])
+		final_country_chi_broi      [,9:11],
+		final_country_chi_layr      [,9:11],
+		final_country_pig_back      [,9:11],
+		final_country_pig_inte      [,9:11],
+		final_country_pig_indu      [,9:11],
+		final_country_buf_beef_grass[,9:11],
+		final_country_buf_beef_mixed[,9:11],
+		final_country_buf_dair_grass[,9:11],
+		final_country_buf_dair_mixed[,9:11],
+		final_country_cat_flot      [,9:11],
+		final_country_cat_beef_grass[,9:11],
+		final_country_cat_beef_mixed[,9:11],
+		final_country_cat_dair_grass[,9:11],
+		final_country_cat_dair_mixed[,9:11],
+		final_country_sml_beef_grass[,9:11],
+		final_country_sml_beef_mixed[,9:11],
+		final_country_sml_dair_grass[,9:11],
+		final_country_sml_dair_mixed[,9:11])
 write.table (nue_stage, "5.Outputs/2.country/nue_stage.csv", sep = ",", row.names = FALSE)
 
 
@@ -1112,16 +1066,16 @@ write.table (nue_stage, "5.Outputs/2.country/nue_stage.csv", sep = ",", row.name
 ####################################
 
 regional_aggregation = function(table){
-	region_annex = data.frame(matrix(c( "North America", 			"10",
-										"Central & South America",	"20",
-										"South Asia", 				"30",
-										"East Asia", 				"40",
-										"Western Europe", 			"50",
-										"Eastern Europe", 			"60",
-										"Oceania", 					"70",
-										"Russian Federation", 		"80",
-										"Sub-Saharan Africa", 		"90",
-										"West Asia & Northern Africa", "91"), 10, 2, byrow=TRUE))
+	region_annex = data.frame(matrix(c( "North America", "10",
+					"Central & South America","20",
+					"South Asia", "30",
+					"East Asia", "40",
+					"Western Europe", "50",
+					"Eastern Europe", "60",
+					"Oceania", "70",
+					"Russian Federation", "80",
+					"Sub-Saharan Africa", "90",
+					"West Asia & Northern Africa", "91"), 10, 2, byrow=TRUE))
 	names(region_annex) = c("REG_ANNEX5", "CATEG")
 
 	table$CATEG <- region_annex$CATEG[match(table$REG_ANNEX5, region_annex$REG_ANNEX5)]
@@ -1157,24 +1111,24 @@ my_emission_total <- function (data){
 	return(n_emission)
 }
 emission_country = data.frame(my_emission_total (data = final_country_chi_back ),
-							 my_emission_total (data = final_country_chi_broi      ),
-							 my_emission_total (data = final_country_chi_layr      ),
-							 my_emission_total (data = final_country_pig_back      ),
-							 my_emission_total (data = final_country_pig_inte      ),
-							 my_emission_total (data = final_country_pig_indu      ),
-							 my_emission_total (data = final_country_buf_beef_grass),
-							 my_emission_total (data = final_country_buf_beef_mixed),
-							 my_emission_total (data = final_country_buf_dair_grass),
-							 my_emission_total (data = final_country_buf_dair_mixed),
-							 my_emission_total (data = final_country_cat_flot),
-							 my_emission_total (data = final_country_cat_beef_grass),
-							 my_emission_total (data = final_country_cat_beef_mixed),
-							 my_emission_total (data = final_country_cat_dair_grass),
-							 my_emission_total (data = final_country_cat_dair_mixed),
-							 my_emission_total (data = final_country_sml_beef_grass),
-							 my_emission_total (data = final_country_sml_beef_mixed),
-							 my_emission_total (data = final_country_sml_dair_grass),
-							 my_emission_total (data = final_country_sml_dair_mixed))
+		 my_emission_total (data = final_country_chi_broi      ),
+		 my_emission_total (data = final_country_chi_layr      ),
+		 my_emission_total (data = final_country_pig_back      ),
+		 my_emission_total (data = final_country_pig_inte      ),
+		 my_emission_total (data = final_country_pig_indu      ),
+		 my_emission_total (data = final_country_buf_beef_grass),
+		 my_emission_total (data = final_country_buf_beef_mixed),
+		 my_emission_total (data = final_country_buf_dair_grass),
+		 my_emission_total (data = final_country_buf_dair_mixed),
+		 my_emission_total (data = final_country_cat_flot),
+		 my_emission_total (data = final_country_cat_beef_grass),
+		 my_emission_total (data = final_country_cat_beef_mixed),
+		 my_emission_total (data = final_country_cat_dair_grass),
+		 my_emission_total (data = final_country_cat_dair_mixed),
+		 my_emission_total (data = final_country_sml_beef_grass),
+		 my_emission_total (data = final_country_sml_beef_mixed),
+		 my_emission_total (data = final_country_sml_dair_grass),
+		 my_emission_total (data = final_country_sml_dair_mixed))
 
 emission_country_chi_back =  my_emission_total (data = final_country_sml_dair_mixed)
 
@@ -1219,10 +1173,6 @@ emission_total_sml =  my_emission_total (data = final_country_sml_beef_grass) +
 emission_total_sml = data.frame(final_country_chi_back[,1:5], emission_total_sml)
 regional_emission_total_sml = regional_aggregation(table= emission_total_sml)
 
-#regional_emission_species = data.frame(regional_emission_total_chi[c(1,2)], regional_emission_total_pig[,2], regional_emission_total_buf[,2],
-#										regional_emission_total_cat[,2], regional_emission_total_sml[,2])
-#names(regional_emission_species) = c("regions", "chicken", "pig", "buffalo", "cattle", "small_ruminant")
-#write.table(regional_emission_species, "5.Outputs/4.total/regional_emission_NH3.csv", sep=",", row.names = FALSE)
 
 
 regional_emission_species = data.frame(regional_emission_total_chi[,1], rowSums(regional_emission_total_chi[,-1], na.rm=TRUE), 
@@ -1250,24 +1200,24 @@ my_emission_compound <- function (data){
 }
 
 final_emission_compound = my_emission_compound (data = final_country_chi_back ) +
-						 my_emission_compound (data = final_country_chi_broi      ) +
-						 my_emission_compound (data = final_country_chi_layr      ) +
-						 my_emission_compound (data = final_country_pig_back      ) +
-						 my_emission_compound (data = final_country_pig_inte      ) +
-						 my_emission_compound (data = final_country_pig_indu      ) +
-						 my_emission_compound (data = final_country_buf_beef_grass) +
-						 my_emission_compound (data = final_country_buf_beef_mixed) +
-						 my_emission_compound (data = final_country_buf_dair_grass) +
-						 my_emission_compound (data = final_country_buf_dair_mixed) +
-						 my_emission_compound (data = final_country_cat_flot) +
-						 my_emission_compound (data = final_country_cat_beef_grass) +
-						 my_emission_compound (data = final_country_cat_beef_mixed) +
-						 my_emission_compound (data = final_country_cat_dair_grass) +
-						 my_emission_compound (data = final_country_cat_dair_mixed) +
-						 my_emission_compound (data = final_country_sml_beef_grass) +
-						 my_emission_compound (data = final_country_sml_beef_mixed) +
-						 my_emission_compound (data = final_country_sml_dair_grass) +
-						 my_emission_compound (data = final_country_sml_dair_mixed) 
+		 my_emission_compound (data = final_country_chi_broi      ) +
+		 my_emission_compound (data = final_country_chi_layr      ) +
+		 my_emission_compound (data = final_country_pig_back      ) +
+		 my_emission_compound (data = final_country_pig_inte      ) +
+		 my_emission_compound (data = final_country_pig_indu      ) +
+		 my_emission_compound (data = final_country_buf_beef_grass) +
+		 my_emission_compound (data = final_country_buf_beef_mixed) +
+		 my_emission_compound (data = final_country_buf_dair_grass) +
+		 my_emission_compound (data = final_country_buf_dair_mixed) +
+		 my_emission_compound (data = final_country_cat_flot) +
+		 my_emission_compound (data = final_country_cat_beef_grass) +
+		 my_emission_compound (data = final_country_cat_beef_mixed) +
+		 my_emission_compound (data = final_country_cat_dair_grass) +
+		 my_emission_compound (data = final_country_cat_dair_mixed) +
+		 my_emission_compound (data = final_country_sml_beef_grass) +
+		 my_emission_compound (data = final_country_sml_beef_mixed) +
+		 my_emission_compound (data = final_country_sml_dair_grass) +
+		 my_emission_compound (data = final_country_sml_dair_mixed) 
 
 final_emission_compound = data.frame(final_country_chi_back[,1:5], final_emission_compound)
 write.table(final_emission_compound, "5.Outputs/4.total/emissions_country_compound.csv", sep=",", row.names = FALSE)
@@ -1292,24 +1242,24 @@ my_emission_compound_stage <- function (data){
 }
 
 emission_compound_stage = my_emission_compound_stage (data = final_country_chi_back ) +
-						 my_emission_compound_stage (data = final_country_chi_broi      ) +
-						 my_emission_compound_stage (data = final_country_chi_layr      ) +
-						 my_emission_compound_stage (data = final_country_pig_back      ) +
-						 my_emission_compound_stage (data = final_country_pig_inte      ) +
-						 my_emission_compound_stage (data = final_country_pig_indu      ) +
-						 my_emission_compound_stage (data = final_country_buf_beef_grass) +
-						 my_emission_compound_stage (data = final_country_buf_beef_mixed) +
-						 my_emission_compound_stage (data = final_country_buf_dair_grass) +
-						 my_emission_compound_stage (data = final_country_buf_dair_mixed) +
-						 my_emission_compound_stage (data = final_country_cat_flot) +
-						 my_emission_compound_stage (data = final_country_cat_beef_grass) +
-						 my_emission_compound_stage (data = final_country_cat_beef_mixed) +
-						 my_emission_compound_stage (data = final_country_cat_dair_grass) +
-						 my_emission_compound_stage (data = final_country_cat_dair_mixed) +
-						 my_emission_compound_stage (data = final_country_sml_beef_grass) +
-						 my_emission_compound_stage (data = final_country_sml_beef_mixed) +
-						 my_emission_compound_stage (data = final_country_sml_dair_grass) +
-						 my_emission_compound_stage (data = final_country_sml_dair_mixed) 
+		 my_emission_compound_stage (data = final_country_chi_broi      ) +
+		 my_emission_compound_stage (data = final_country_chi_layr      ) +
+		 my_emission_compound_stage (data = final_country_pig_back      ) +
+		 my_emission_compound_stage (data = final_country_pig_inte      ) +
+		 my_emission_compound_stage (data = final_country_pig_indu      ) +
+		 my_emission_compound_stage (data = final_country_buf_beef_grass) +
+		 my_emission_compound_stage (data = final_country_buf_beef_mixed) +
+		 my_emission_compound_stage (data = final_country_buf_dair_grass) +
+		 my_emission_compound_stage (data = final_country_buf_dair_mixed) +
+		 my_emission_compound_stage (data = final_country_cat_flot) +
+		 my_emission_compound_stage (data = final_country_cat_beef_grass) +
+		 my_emission_compound_stage (data = final_country_cat_beef_mixed) +
+		 my_emission_compound_stage (data = final_country_cat_dair_grass) +
+		 my_emission_compound_stage (data = final_country_cat_dair_mixed) +
+		 my_emission_compound_stage (data = final_country_sml_beef_grass) +
+		 my_emission_compound_stage (data = final_country_sml_beef_mixed) +
+		 my_emission_compound_stage (data = final_country_sml_dair_grass) +
+		 my_emission_compound_stage (data = final_country_sml_dair_mixed) 
 
 emission_compound_stage = data.frame(final_country_chi_back[,1:5], emission_compound_stage)
 write.table(emission_compound_stage, "5.Outputs/4.total/emissions_compound_stage.csv", sep=",", row.names = FALSE)
@@ -1364,44 +1314,44 @@ regional_emission_compound_stage_sml = regional_aggregation(table= emission_comp
 #################################################
 
 nom_system <- c("Backyard_chicken",
-	            "Broilers_Chicken",
-	            "Layers_chicken",
-	            "Backyard_pig",
-	            "Intermediate_pig",
-	            "Industrial_pig",
-	            "Grazing_buffalo_meat",
-	            "Mixed_buffalo_meat",
-	            "Grazing_buffalo_milk",
-	            "Mixed_Buffalo_milk",
-	            "Beef_cattle_feedlot",
-	            "Grazing_beef_cattle",
-	            "Mixed_beef_cattle",
-	            "Grazing_dairy_cattle",
-	            "Mixed_dairy_cattle",
-	            "Grazing_small_ruminant_meat",
-	            "Mixed_small_ruminant_meat",
-	            "Grazing_small_ruminant_milk",
-	            "Mixed_small_ruminant_milk")
+	    "Broilers_Chicken",
+	    "Layers_chicken",
+	    "Backyard_pig",
+	    "Intermediate_pig",
+	    "Industrial_pig",
+	    "Grazing_buffalo_meat",
+	    "Mixed_buffalo_meat",
+	    "Grazing_buffalo_milk",
+	    "Mixed_Buffalo_milk",
+	    "Beef_cattle_feedlot",
+	    "Grazing_beef_cattle",
+	    "Mixed_beef_cattle",
+	    "Grazing_dairy_cattle",
+	    "Mixed_dairy_cattle",
+	    "Grazing_small_ruminant_meat",
+	    "Mixed_small_ruminant_meat",
+	    "Grazing_small_ruminant_milk",
+	    "Mixed_small_ruminant_milk")
 
 losses_systems <- data.frame((final_country_chi_back$total_losses),
-				(final_country_chi_broi$total_losses),
-				(final_country_chi_layr$total_losses),
-				(final_country_pig_back$total_losses),
-				(final_country_pig_inte$total_losses),
-				(final_country_pig_indu$total_losses),
-				(final_country_buf_beef_grass$total_losses),
-				(final_country_buf_beef_mixed$total_losses),
-				(final_country_buf_dair_grass$total_losses),
-				(final_country_buf_dair_mixed$total_losses),
-				(final_country_cat_flot$total_losses),
-				(final_country_cat_beef_grass$total_losses),
-				(final_country_cat_beef_mixed$total_losses),
-				(final_country_cat_dair_grass$total_losses),
-				(final_country_cat_dair_mixed$total_losses),
-				(final_country_sml_beef_grass$total_losses),
-				(final_country_sml_beef_mixed$total_losses),
-				(final_country_sml_dair_grass$total_losses),
-				(final_country_sml_dair_mixed$total_losses))/1000
+		(final_country_chi_broi$total_losses),
+		(final_country_chi_layr$total_losses),
+		(final_country_pig_back$total_losses),
+		(final_country_pig_inte$total_losses),
+		(final_country_pig_indu$total_losses),
+		(final_country_buf_beef_grass$total_losses),
+		(final_country_buf_beef_mixed$total_losses),
+		(final_country_buf_dair_grass$total_losses),
+		(final_country_buf_dair_mixed$total_losses),
+		(final_country_cat_flot$total_losses),
+		(final_country_cat_beef_grass$total_losses),
+		(final_country_cat_beef_mixed$total_losses),
+		(final_country_cat_dair_grass$total_losses),
+		(final_country_cat_dair_mixed$total_losses),
+		(final_country_sml_beef_grass$total_losses),
+		(final_country_sml_beef_mixed$total_losses),
+		(final_country_sml_dair_grass$total_losses),
+		(final_country_sml_dair_mixed$total_losses))/1000
 names (losses_systems) = nom_system
 
 regional_emission_system = regional_aggregation(table= data.frame(feed_chi_back[,1:5],losses_systems))
@@ -1430,7 +1380,6 @@ ggplot(aaa, aes(x = reorder(syst, losses), y = losses, fill = Region )) +
   theme(legend.position="right")+
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
   ylab("N emissions, Tg N y-1")
-#ggtitle("Life cycle net nitrogen use efficiency")
 savePlot("7.Graphs/3.systems/All_system_contribution_by_region.emf",type = "emf")
 
 
@@ -1441,24 +1390,24 @@ savePlot("7.Graphs/3.systems/All_system_contribution_by_region.emf",type = "emf"
 # Life-cycle nitrogen use efficiency
 
 lcnue_data = data.frame(final_country_chi_back[,15],
-                                  final_country_chi_broi[,15],
-                                  final_country_chi_layr[,15],
-                                  final_country_pig_back[,15],
-                                  final_country_pig_inte[,15],
-                                  final_country_pig_indu[,15],
-                                  final_country_buf_beef_grass[,15],
-                                  final_country_buf_beef_mixed[,15],
-                                  final_country_buf_dair_grass[,15],
-                                  final_country_buf_dair_mixed[,15],
-                                  final_country_cat_flot[,15],
-                                  final_country_cat_beef_grass[,15],
-                                  final_country_cat_beef_mixed[,15],
-                                  final_country_cat_dair_grass[,15],
-                                  final_country_cat_dair_mixed[,15],
-                                  final_country_sml_beef_grass[,15],
-                                  final_country_sml_beef_mixed[,15],
-                                  final_country_sml_dair_grass[,15],
-                                  final_country_sml_dair_mixed[,15])
+	  final_country_chi_broi[,15],
+	  final_country_chi_layr[,15],
+	  final_country_pig_back[,15],
+	  final_country_pig_inte[,15],
+	  final_country_pig_indu[,15],
+	  final_country_buf_beef_grass[,15],
+	  final_country_buf_beef_mixed[,15],
+	  final_country_buf_dair_grass[,15],
+	  final_country_buf_dair_mixed[,15],
+	  final_country_cat_flot[,15],
+	  final_country_cat_beef_grass[,15],
+	  final_country_cat_beef_mixed[,15],
+	  final_country_cat_dair_grass[,15],
+	  final_country_cat_dair_mixed[,15],
+	  final_country_sml_beef_grass[,15],
+	  final_country_sml_beef_mixed[,15],
+	  final_country_sml_dair_grass[,15],
+	  final_country_sml_dair_mixed[,15])
 lcnue_data[lcnue_data <= 1] = NA
 lcnue_data[lcnue_data >= 100] = NA
 sapply(lcnue_data,median, na.rm=TRUE)
@@ -1503,24 +1452,24 @@ savePlot("7.Graphs/5.indicator/LCNUE_boxplot.emf",type = "emf")
 # Life-cycle net nitrogen balance
 
 lcnnb_data = data.frame(final_country_chi_back[,16],
-                                  final_country_chi_broi[,16],
-                                  final_country_chi_layr[,16],
-                                  final_country_pig_back[,16],
-                                  final_country_pig_inte[,16],
-                                  final_country_pig_indu[,16],
-                                  final_country_buf_beef_grass[,16],
-                                  final_country_buf_beef_mixed[,16],
-                                  final_country_buf_dair_grass[,16],
-                                  final_country_buf_dair_mixed[,16],
-                                  final_country_cat_flot[,16],
-                                  final_country_cat_beef_grass[,16],
-                                  final_country_cat_beef_mixed[,16],
-                                  final_country_cat_dair_grass[,16],
-                                  final_country_cat_dair_mixed[,16],
-                                  final_country_sml_beef_grass[,16],
-                                  final_country_sml_beef_mixed[,16],
-                                  final_country_sml_dair_grass[,16],
-                                  final_country_sml_dair_mixed[,16])
+		  final_country_chi_broi[,16],
+		  final_country_chi_layr[,16],
+		  final_country_pig_back[,16],
+		  final_country_pig_inte[,16],
+		  final_country_pig_indu[,16],
+		  final_country_buf_beef_grass[,16],
+		  final_country_buf_beef_mixed[,16],
+		  final_country_buf_dair_grass[,16],
+		  final_country_buf_dair_mixed[,16],
+		  final_country_cat_flot[,16],
+		  final_country_cat_beef_grass[,16],
+		  final_country_cat_beef_mixed[,16],
+		  final_country_cat_dair_grass[,16],
+		  final_country_cat_dair_mixed[,16],
+		  final_country_sml_beef_grass[,16],
+		  final_country_sml_beef_mixed[,16],
+		  final_country_sml_dair_grass[,16],
+		  final_country_sml_dair_mixed[,16])
 write.table(data.frame(feed_chi_back[,1:2],lcnnb_data), "5.Outputs/5.indicators/lcnnb_data.csv", sep=",", row.names=FALSE)
 
 
@@ -1566,55 +1515,6 @@ ggplot(lcnnb_data, aes(x=reorder(variable, (value*-1), FUN=median, order = is.or
   ggtitle("Life cycle net nutrient balance")
 #ggsave("7.Graphs/5.indicator/LCNNB_boxplot.pdf", width = 20, height = 20, units = "cm")
 savePlot("7.Graphs/5.indicator/1LCNNB_boxplot.emf",type = "emf")
-
-# nitrogen hotspot index
-
-nhi_data = data.frame(final_country_chi_back[,17],
-                                  final_country_chi_broi[,17],
-                                  final_country_chi_layr[,17],
-                                  final_country_pig_back[,17],
-                                  final_country_pig_inte[,17],
-                                  final_country_pig_indu[,17],
-                                  final_country_buf_beef_grass[,17],
-                                  final_country_buf_beef_mixed[,17],
-                                  final_country_buf_dair_grass[,17],
-                                  final_country_buf_dair_mixed[,17],
-                                  final_country_cat_flot[,17],
-                                  final_country_cat_beef_grass[,17],
-                                  final_country_cat_beef_mixed[,17],
-                                  final_country_cat_dair_grass[,17],
-                                  final_country_cat_dair_mixed[,17],
-                                  final_country_sml_beef_grass[,17],
-                                  final_country_sml_beef_mixed[,17],
-                                  final_country_sml_dair_grass[,17],
-                                  final_country_sml_dair_mixed[,17])
-
-
-names(nhi_data ) =  nom_system
-
-nhi_data = melt(nhi_data)
-nhi_data = filter(nhi_data, value>0)
-nhi_data = filter(nhi_data, value<200)
-nhi_data %>% 
-  group_by(variable) %>% 
-  summarise(value = list(enframe(quantile(value, probs=c(0.10))))) %>% 
-  unnest
-
-# Basic box plot
-windows(height=15, width=10)
-ggplot(nhi_data, aes(x=reorder(variable, value, FUN=median), y=value)) + 
-  geom_boxplot()+ 
-  stat_summary(fun.y=mean, colour="darkred", geom="point", shape=18, size=3,show.legend = FALSE) +
-  scale_y_continuous(breaks = seq(0, 200, by=20), limits=c(0,200))+
-  coord_flip() +
-  theme(axis.text = element_text(size  =15)) +
-  theme_bw(base_size = 12, base_family = "") +
-  theme(plot.margin = unit(c(1,1,1,1), "cm")) +
-  theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank()) +
-  ylab("Nitrogen hotspot index, %")+
-  ggtitle("Distribution of N losses")
-savePlot("7.Graphs/5.indicator/nhi_boxplot.emf",type = "emf")
-
 
 
 ######################################
@@ -1678,91 +1578,29 @@ emission_factor_animal = data.frame (animal_chi_back[,1], ef_pig,ef_egg, ef_chic
 names(emission_factor_animal) = c("ADM0_CODE", "pig_meat", "egg", "chicken_meat", "meat_sheep", "milk_sheep", "meat_cattle", "milk_cattle")
 write.table(emission_factor_animal, "emission_factor_animal.csv", sep=",", row.names = FALSE)
 
-##########################
-## Emission factors N2O ##
-##########################
 
-
-ef_pig <- (final_country_pig_inte$Crop_total_nitrous_oxide + final_country_pig_inte$N2O +
-             final_country_pig_indu$Crop_total_nitrous_oxide + final_country_pig_indu$N2O)*1000000 / (animal_pig_inte[,25] + animal_pig_indu[,25])
-ef_pig[is.na(ef_pig)|ef_pig ==NaN ]  <- 0
-
-ef_egg <- (final_country_chi_layr$Crop_total_nitrous_oxide + final_country_chi_layr$N2O) *1000000/animal_chi_layr[,26]
-ef_egg[is.na(ef_egg)|ef_egg ==NaN ]  <- 0
-
-ef_chicken <-  (final_country_chi_broi$Crop_total_nitrous_oxide + final_country_chi_broi$N2O) * 1000000 / animal_chi_broi[,25]
-ef_chicken[is.na(ef_chicken)|ef_chicken ==NaN ]  <- 0
-
-# Allocation ruminants 
-my_allocation = function(table){
-  output = data.frame(matrix(0, nrow(table),2))
-  names(output) = c("meat", "milk")
-  output[,1] = table$OUTPUT_MEAT /(table$OUTPUT_MEAT + table$OUTPUT_MILK)
-  output[,2] = table$OUTPUT_MILK /(table$OUTPUT_MEAT + table$OUTPUT_MILK)
-  output[is.na(output)|output ==NaN ]  <- 0
-  
-  return (output)
-}
-
-allo_she_dairy_grass = my_allocation (table = processing_she_dair_grass)
-allo_she_dairy_mixed = my_allocation (table = processing_she_dair_mixed)
-
-
-allo_cat_dairy_grass = my_allocation (table = processing_cat_dair_grass)
-allo_cat_dairy_mixed = my_allocation (table = processing_cat_dair_mixed)
-
-
-ef_sheep_beef <-(final_country_she_beef_grass$Crop_total_nitrous_oxide +final_country_she_beef_grass$N2O +
-                   final_country_she_beef_mixed$Crop_total_nitrous_oxide +final_country_she_beef_mixed$N2O +
-                   (final_country_she_dair_grass$Crop_total_nitrous_oxide +final_country_she_dair_grass$N2O) *  allo_she_dairy_grass [,1]+ 
-                   (final_country_she_dair_mixed$Crop_total_nitrous_oxide + final_country_she_dair_mixed$N2O) *  allo_she_dairy_mixed [,1])*1000000 /
-  (animal_she_beef_grass[,25] + animal_she_beef_mixed[,25] + animal_she_dair_grass[,25] + animal_she_dair_mixed[,25])
-ef_sheep_beef[is.na(ef_sheep_beef)|ef_sheep_beef ==NaN ]  <- 0
-
-ef_sheep_dairy <- ((final_country_she_dair_grass$Crop_total_nitrous_oxide + final_country_she_dair_grass$N2O) *  allo_she_dairy_grass [,2]+ 
-                     (final_country_she_dair_mixed$Crop_total_nitrous_oxide + final_country_she_dair_mixed$N2O) *  allo_she_dairy_mixed [,2])*1000000 /
-  (animal_she_dair_grass[,26] + animal_she_dair_mixed[,26])
-ef_sheep_dairy[is.na(ef_sheep_dairy)|ef_sheep_dairy ==NaN ]  <- 0
-
-ef_cattle_beef <-((final_country_cat_flot$Crop_total_nitrous_oxide +final_country_cat_flot$N2O)+
-                    (final_country_cat_beef_grass$Crop_total_nitrous_oxide + final_country_cat_beef_grass$N2O)+
-                    (final_country_cat_beef_mixed$Crop_total_nitrous_oxide +final_country_cat_beef_mixed$N2O)+
-                    (final_country_cat_dair_grass$Crop_total_nitrous_oxide + final_country_cat_dair_grass$N2O) *  allo_cat_dairy_grass [,1]+ 
-                    (final_country_cat_dair_mixed$Crop_total_nitrous_oxide + final_country_cat_dair_mixed$N2O) *  allo_cat_dairy_mixed [,1])*1000000 /
-  (animal_cat_beef_grass[,25] + animal_cat_beef_mixed[,25] + animal_cat_dair_grass[,25] + animal_cat_dair_mixed[,25])
-ef_cattle_beef[is.na(ef_cattle_beef)|ef_cattle_beef ==NaN ]  <- 0
-
-ef_cattle_dairy <- ((final_country_cat_dair_grass$Crop_total_nitrous_oxide + final_country_cat_dair_grass$N2O) *  allo_cat_dairy_grass [,2]+ 
-                      (final_country_cat_dair_mixed$Crop_total_nitrous_oxide + final_country_cat_dair_mixed$N2O) *  allo_cat_dairy_mixed [,2])*1000000 /
-  (animal_cat_dair_grass[,26] + animal_cat_dair_mixed[,26])
-ef_cattle_dairy [is.na(ef_cattle_dairy )|ef_cattle_dairy  ==NaN ]  <- 0
-
-emission_factor_animaln2o = data.frame (animal_chi_back[,1], ef_pig,ef_egg, ef_chicken,ef_sheep_beef,ef_sheep_dairy, ef_cattle_beef, ef_cattle_dairy)
-names(emission_factor_animaln2o) = c("ADM0_CODE", "pig_meat", "chicken_egg", "chicken_meat", "meat_sheep", "milk_sheep", "meat_cattle", "milk_cattle")
-write.table(emission_factor_animaln2o, "emission_factor_animaln2o.csv", sep=",", row.names = FALSE)
-
-
+# Global Nitrogen flows - Fig. 1
 # Sum of the inputs - feed
 
 global_feed = colSums((feed_chi_back_allo[,-c(1:5)] +
-                				feed_chi_broi_allo[,-c(1:5)] + 
-                				feed_chi_layr_allo[,-c(1:5)] + 
-                				feed_pig_back_allo[,-c(1:5)] + 
-                				feed_pig_inte_allo[,-c(1:5)] + 
-                				feed_pig_indu_allo[,-c(1:5)] + 
-                				feed_cat_flot_allo[,-c(1:5)] + 
-                				feed_buf_beef_grass_allo[,-c(1:5)] +
-                				feed_buf_beef_mixed_allo[,-c(1:5)] +
-                				feed_buf_dair_grass_allo[,-c(1:5)] +
-                				feed_buf_dair_mixed_allo[,-c(1:5)] +
-                				feed_cat_beef_grass_allo[,-c(1:5)] +
-                				feed_cat_beef_mixed_allo[,-c(1:5)] +
-                				feed_cat_dair_grass_allo[,-c(1:5)] +
-                				feed_cat_dair_mixed_allo[,-c(1:5)] +
-                				feed_sml_beef_grass_allo[,-c(1:5)] +
-                				feed_sml_beef_mixed_allo[,-c(1:5)] +
-                				feed_sml_dair_grass_allo[,-c(1:5)] +
-                				feed_sml_dair_mixed_allo[,-c(1:5)] )/10^9, na.rm = FALSE)
+		feed_chi_broi_allo[,-c(1:5)] + 
+		feed_chi_layr_allo[,-c(1:5)] + 
+		feed_pig_back_allo[,-c(1:5)] + 
+		feed_pig_inte_allo[,-c(1:5)] + 
+		feed_pig_indu_allo[,-c(1:5)] + 
+		feed_cat_flot_allo[,-c(1:5)] + 
+		feed_buf_beef_grass_allo[,-c(1:5)] +
+		feed_buf_beef_mixed_allo[,-c(1:5)] +
+		feed_buf_dair_grass_allo[,-c(1:5)] +
+		feed_buf_dair_mixed_allo[,-c(1:5)] +
+		feed_cat_beef_grass_allo[,-c(1:5)] +
+		feed_cat_beef_mixed_allo[,-c(1:5)] +
+		feed_cat_dair_grass_allo[,-c(1:5)] +
+		feed_cat_dair_mixed_allo[,-c(1:5)] +
+		feed_sml_beef_grass_allo[,-c(1:5)] +
+		feed_sml_beef_mixed_allo[,-c(1:5)] +
+		feed_sml_dair_grass_allo[,-c(1:5)] +
+		feed_sml_dair_mixed_allo[,-c(1:5)] )/10^9, na.rm = FALSE)
 write.table(global_feed, "global_feed.csv", col.names = FALSE, sep=",")
 
 
@@ -1773,68 +1611,68 @@ n_fixation = (global_feed[5]+global_feed[6])
 # Global flows 
 
 global_flows = colSums((final_country_chi_back[,-c(1:17)]+
-            						final_country_chi_broi[,-c(1:17)]+
-            						final_country_chi_layr[,-c(1:17)]+
-            						final_country_pig_back[,-c(1:17)]+
-            						final_country_pig_inte[,-c(1:17)]+
-            						final_country_pig_indu[,-c(1:17)]+
-            						final_country_buf_beef_grass[,-c(1:17)]+
-            						final_country_buf_beef_mixed[,-c(1:17)] +
-            						final_country_buf_dair_grass[,-c(1:17)] +
-            						final_country_buf_dair_mixed[,-c(1:17)] +
-            						final_country_cat_flot[,-c(1:17)] +
-            						final_country_cat_beef_grass[,-c(1:17)] +
-            						final_country_cat_beef_mixed[,-c(1:17)] +
-            						final_country_cat_dair_grass[,-c(1:17)] +
-            						final_country_cat_dair_mixed[,-c(1:17)] +
-            						final_country_sml_beef_grass[,-c(1:17)] +
-            						final_country_sml_beef_mixed[,-c(1:17)] +
-            						final_country_sml_dair_grass[,-c(1:17)] +
-            						final_country_sml_dair_mixed[,-c(1:17)])/10^3, na.rm = FALSE)
+		final_country_chi_broi[,-c(1:17)]+
+		final_country_chi_layr[,-c(1:17)]+
+		final_country_pig_back[,-c(1:17)]+
+		final_country_pig_inte[,-c(1:17)]+
+		final_country_pig_indu[,-c(1:17)]+
+		final_country_buf_beef_grass[,-c(1:17)]+
+		final_country_buf_beef_mixed[,-c(1:17)] +
+		final_country_buf_dair_grass[,-c(1:17)] +
+		final_country_buf_dair_mixed[,-c(1:17)] +
+		final_country_cat_flot[,-c(1:17)] +
+		final_country_cat_beef_grass[,-c(1:17)] +
+		final_country_cat_beef_mixed[,-c(1:17)] +
+		final_country_cat_dair_grass[,-c(1:17)] +
+		final_country_cat_dair_mixed[,-c(1:17)] +
+		final_country_sml_beef_grass[,-c(1:17)] +
+		final_country_sml_beef_mixed[,-c(1:17)] +
+		final_country_sml_dair_grass[,-c(1:17)] +
+		final_country_sml_dair_mixed[,-c(1:17)])/10^3, na.rm = FALSE)
 write.table(global_flows, "global_flows.csv", col.names = FALSE, sep=",")
 
 glo_anim_flows = colSums((animal_chi_back[,c(6:23)]+
-              						animal_chi_broi[,c(6:23)]+
-              						animal_chi_layr[,c(6:23)]+
-              						animal_pig_back[,c(6:23)]+
-              						animal_pig_inte[,c(6:23)]+
-              						animal_pig_indu[,c(6:23)]+
-              						animal_buf_beef_grass[,c(6:23)]+
-              						animal_buf_beef_mixed[,c(6:23)] +
-              						animal_buf_dair_grass[,c(6:23)] +
-              						animal_buf_dair_mixed[,c(6:23)] +
-              						animal_cat_flot[,c(6:23)] +
-              						animal_cat_beef_grass[,c(6:23)] +
-              						animal_cat_beef_mixed[,c(6:23)] +
-              						animal_cat_dair_grass[,c(6:23)] +
-              						animal_cat_dair_mixed[,c(6:23)] +
-              						animal_sml_beef_grass[,c(6:23)] +
-              						animal_sml_beef_mixed[,c(6:23)] +
-              						animal_sml_dair_grass[,c(6:23)] +
-              						animal_sml_dair_mixed[,c(6:23)])/10^9, na.rm = FALSE)
+		animal_chi_broi[,c(6:23)]+
+		animal_chi_layr[,c(6:23)]+
+		animal_pig_back[,c(6:23)]+
+		animal_pig_inte[,c(6:23)]+
+		animal_pig_indu[,c(6:23)]+
+		animal_buf_beef_grass[,c(6:23)]+
+		animal_buf_beef_mixed[,c(6:23)] +
+		animal_buf_dair_grass[,c(6:23)] +
+		animal_buf_dair_mixed[,c(6:23)] +
+		animal_cat_flot[,c(6:23)] +
+		animal_cat_beef_grass[,c(6:23)] +
+		animal_cat_beef_mixed[,c(6:23)] +
+		animal_cat_dair_grass[,c(6:23)] +
+		animal_cat_dair_mixed[,c(6:23)] +
+		animal_sml_beef_grass[,c(6:23)] +
+		animal_sml_beef_mixed[,c(6:23)] +
+		animal_sml_dair_grass[,c(6:23)] +
+		animal_sml_dair_mixed[,c(6:23)])/10^9, na.rm = FALSE)
 write.table(glo_anim_flows, "global_anim_flows.csv", col.names = FALSE, sep=",")
 
 
 glo_swill_flows = colSums((animal_chi_back[,c(6:23)]+animal_pig_back[,c(6:23)]), na.rm = FALSE)
 
 glo_proc_flows = colSums((processing_chi_back[,c(6:8)]+
-              						processing_chi_broi[,c(6:8)]+
-              						processing_chi_layr[,c(6:8)]+
-              						processing_pig_back[,c(6:8)]+
-              						processing_pig_inte[,c(6:8)]+
-              						processing_pig_indu[,c(6:8)]+
-              						processing_buf_beef_grass[,c(6:8)]+
-              						processing_buf_beef_mixed[,c(6:8)] +
-              						processing_buf_dair_grass[,c(6:8)] +
-              						processing_buf_dair_mixed[,c(6:8)] +
-              						processing_cat_flot[,c(6:8)] +
-              						processing_cat_beef_grass[,c(6:8)] +
-              						processing_cat_beef_mixed[,c(6:8)] +
-              						processing_cat_dair_grass[,c(6:8)] +
-              						processing_cat_dair_mixed[,c(6:8)] +
-              						processing_sml_beef_grass[,c(6:8)] +
-              						processing_sml_beef_mixed[,c(6:8)] +
-              						processing_sml_dair_grass[,c(6:8)] +
-              						processing_sml_dair_mixed[,c(6:8)])/10^9, na.rm = FALSE)
+		processing_chi_broi[,c(6:8)]+
+		processing_chi_layr[,c(6:8)]+
+		processing_pig_back[,c(6:8)]+
+		processing_pig_inte[,c(6:8)]+
+		processing_pig_indu[,c(6:8)]+
+		processing_buf_beef_grass[,c(6:8)]+
+		processing_buf_beef_mixed[,c(6:8)] +
+		processing_buf_dair_grass[,c(6:8)] +
+		processing_buf_dair_mixed[,c(6:8)] +
+		processing_cat_flot[,c(6:8)] +
+		processing_cat_beef_grass[,c(6:8)] +
+		processing_cat_beef_mixed[,c(6:8)] +
+		processing_cat_dair_grass[,c(6:8)] +
+		processing_cat_dair_mixed[,c(6:8)] +
+		processing_sml_beef_grass[,c(6:8)] +
+		processing_sml_beef_mixed[,c(6:8)] +
+		processing_sml_dair_grass[,c(6:8)] +
+		processing_sml_dair_mixed[,c(6:8)])/10^9, na.rm = FALSE)
 write.table(glo_proc_flows, "global_proc_flows.csv", col.names = FALSE, sep=",")
 
